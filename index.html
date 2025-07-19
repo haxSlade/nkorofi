@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SoleSA - Premium Footwear</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        
+        .nav-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin-top: 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-links li {
+            margin-right: 1.2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .search-input {
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 30px 0 0 30px;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .search-input:focus {
+            border-color: #e74c3c;
+        }
+        
+        .search-btn {
+            padding: 0.6rem 1rem;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .search-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            max-width: 100%;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Categories */
+        .categories {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .category-buttons {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .category-buttons::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-btn {
+            padding: 0.6rem 1.2rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: #e74c3c;
+            color: white;
+            border-color: #e74c3c;
+        }
+        
+        /* Price Filter */
+        .price-filter {
+            padding: 0 1rem 1rem;
+            text-align: center;
+        }
+        
+        .price-filter h4 {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .price-range-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .price-range {
+            flex: 1;
+            -webkit-appearance: none;
+            height: 5px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .price-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #e74c3c;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .price-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+            min-width: 80px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 1.5rem 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1rem;
+            position: relative;
+        }
+        
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .product-category {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            padding: 0.2rem 0.5rem;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .product-price span {
+            font-size: 0.8rem;
+            color: #666;
+            text-decoration: line-through;
+            margin-left: 0.3rem;
+        }
+        
+        /* Wishlist Button */
+        .wishlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1;
+            color: #ccc;
+            transition: all 0.3s;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .wishlist-btn.active {
+            color: #e74c3c;
+        }
+        
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 2rem;
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* Special Offer Banner */
+        .offer-banner {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin: 1.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .footer-links li {
+            margin: 0 0.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        
+        .footer-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .social-icons {
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Product Detail Modal */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 10px;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 100%;
+            margin: 10px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: white;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0.5rem;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+
+        .modal-gallery {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .thumbnail.active {
+            border-color: #e74c3c;
+        }
+
+        .modal-details {
+            flex: 1;
+            padding: 15px 0;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .modal-category {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+
+        .modal-price {
+            font-size: 1.3rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .modal-price span {
+            font-size: 0.9rem;
+            color: #666;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .modal-description {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        
+        /* Size Selection */
+        .size-selection {
+            margin: 15px 0;
+        }
+        
+        .size-selection h4 {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .size-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .size-btn:hover, .size-btn.selected {
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Cart Button */
+        .cart-btn-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 99;
+        }
+
+        .cart-btn {
+            background-color: #2c3e50;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .cart-content {
+            background-color: white;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: white;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0.5rem;
+        }
+
+        .cart-body {
+            padding: 15px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .cart-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Cart Item */
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-size {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: #e74c3c;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 5px 0;
+            margin-top: 5px;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .add-to-cart-btn {
+            margin-top: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+            }
+            
+            .modal-details {
+                padding: 0 15px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 5%;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            .nav-links {
+                margin-top: 0;
+                justify-content: flex-end;
+                overflow-x: visible;
+            }
+            
+            .search-container {
+                margin: 0 0 0 2rem;
+                width: auto;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-top">
+                <a href="#" class="logo">Sole<span>SA</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search shoes...">
+                <button class="search-btn">Search</button>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Step Into Style</h1>
+        <p>Discover South Africa's finest footwear collection with premium sneakers, running shoes, and casual wear for every occasion.</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+    
+    <section class="categories">
+        <div class="section-title">
+            <h2>Our Collections</h2>
+            <p>Find the perfect pair for your style</p>
+        </div>
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="sneakers">Sneakers</button>
+            <button class="category-btn" data-category="running">Running</button>
+            <button class="category-btn" data-category="casual">Casual</button>
+            <button class="category-btn" data-category="basketball">Basketball</button>
+            <button class="category-btn" data-category="limited">Limited</button>
+        </div>
+    </section>
+    
+    <div class="price-filter">
+        <h4>Price Range</h4>
+        <div class="price-range-container">
+            <input type="range" class="price-range" min="0" max="5000" step="100" value="5000">
+            <span class="price-value">Up to R5000</span>
+        </div>
+    </div>
+    
+    <div class="offer-banner">
+        <h3>🇿🇦 Free Shipping on All Orders Over R3000 Nationwide!</h3>
+    </div>
+    
+    <section class="products" id="products">
+        <div class="products-grid">
+            <!-- Sneakers -->
+            <div class="product-card" data-category="sneakers" data-product-id="1">
+                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Adidas Samba" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="1">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Adidas Samba</h3>
+                    <p class="product-price">R999 <span>R1,950</span></p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="sneakers" data-product-id="2">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nike Nocta" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="2">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Nike Nocta</h3>
+                    <p class="product-price">R1,799</p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="sneakers" data-product-id="3">
+                <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Nike shox TL" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="3">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Nike shox TL</h3>
+                    <p class="product-price">R3,199 <span>R3,499</span></p>
+                </div>
+            </div>
+            
+            <!-- Running -->
+            <div class="product-card" data-category="running" data-product-id="4">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nike Shox TL" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="4">❤️</button>
+                    <span class="product-category">Running</span>
+                    <h3 class="product-title">Nike Shox TL</h3>
+                    <p class="product-price">R2,299</p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="running" data-product-id="5">
+                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nike Shox TL" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="5">❤️</button>
+                    <span class="product-category">Running</span>
+                    <h3 class="product-title">Nike Shox TL</h3>
+                    <p class="product-price">R3,499 <span>R3,799</span></p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="running" data-product-id="6">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Nike shox TL" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="6">❤️</button>
+                    <span class="product-category">Running</span>
+                    <h3 class="product-title">Nike shox TL</h3>
+                    <p class="product-price">R1,899</p>
+                </div>
+            </div>
+            
+            <!-- Casual -->
+            <div class="product-card" data-category="casual" data-product-id="7">
+                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80" alt="Vans Old Skool" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="7">❤️</button>
+                    <span class="product-category">Casual</span>
+                    <h3 class="product-title">Vans Old Skool</h3>
+                    <p class="product-price">R1,099</p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="casual" data-product-id="8">
+                <img src="https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Converse Chuck Taylor" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="8">❤️</button>
+                    <span class="product-category">Casual</span>
+                    <h3 class="product-title">Converse Chuck Taylor</h3>
+                    <p class="product-price">R999</p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="casual" data-product-id="9">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80" alt="New Balance 574" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="9">❤️</button>
+                    <span class="product-category">Casual</span>
+                    <h3 class="product-title">New Balance 574</h3>
+                    <p class="product-price">R1,599 <span>R1,799</span></p>
+                </div>
+            </div>
+            
+            <!-- More Sneakers -->
+            <div class="product-card" data-category="sneakers" data-product-id="10">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80" alt="Reebok Classic Leather" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="10">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Reebok Classic Leather</h3>
+                    <p class="product-price">R1,499</p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="sneakers" data-product-id="11">
+                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nike Dunk Low" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="11">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Nike Dunk Low</h3>
+                    <p class="product-price">R2,799</p>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="sneakers" data-product-id="12">
+                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Puma Suede Classic" class="product-img">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="12">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Puma Suede Classic</h3>
+                    <p class="product-price">R1,299 <span>R1,499</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalProductTitle">Product Details</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <img id="modalMainImage" src="" alt="Main product image" class="main-image">
+                    <div class="thumbnail-container" id="thumbnailContainer">
+                        <!-- Thumbnails will be added here dynamically -->
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <span class="modal-category" id="modalCategory">Sneakers</span>
+                    <h1 class="modal-title" id="modalTitle">Adidas Samba</h1>
+                    <p class="modal-price" id="modalPrice">R999 <span>R1,950</span></p>
+                    <div class="modal-description">
+                        <p>Premium leather sneakers with classic design. Perfect for both casual and sporty looks. Features a comfortable cushioned insole and durable rubber outsole.</p>
+                        <p>Available in multiple colors and sizes. Handcrafted with attention to detail for maximum comfort and style.</p>
+                    </div>
+                    <div class="size-selection">
+                        <h4>Size:</h4>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="5">5</button>
+                            <button class="size-btn" data-size="6">6</button>
+                            <button class="size-btn" data-size="7">7</button>
+                            <button class="size-btn" data-size="8">8</button>
+                            <button class="size-btn" data-size="9">9</button>
+                            <button class="size-btn" data-size="10">10</button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <!-- Add to Cart button will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            <div class="cart-body" id="cartItems">
+                <!-- Cart items will be added here dynamically -->
+                <div class="empty-cart-message">Your cart is empty</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">R0.00</span>
+                </div>
+                <button class="btn checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Button -->
+    <div class="cart-btn-container">
+        <button class="cart-btn" id="cartButton">
+            🛒 <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27752686169" class="whatsapp-btn" target="_blank">💬</a>
+    
+    <footer>
+        <div class="social-icons">
+            <a href="#">📱</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">🐦</a>
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+        </ul>
+        <p>&copy; 2023 SoleSA. All rights reserved. Prices in South African Rand (ZAR)</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Existing wishlist functionality
+            const wishlist = {
+                items: [],
+                
+                toggleItem: function(productId) {
+                    const index = this.items.indexOf(productId);
+                    if (index === -1) {
+                        this.items.push(productId);
+                    } else {
+                        this.items.splice(index, 1);
+                    }
+                    this.saveToLocalStorage();
+                },
+                
+                isInWishlist: function(productId) {
+                    return this.items.includes(productId);
+                },
+                
+                saveToLocalStorage: function() {
+                    localStorage.setItem('soleSA_wishlist', JSON.stringify(this.items));
+                },
+                
+                loadFromLocalStorage: function() {
+                    const saved = localStorage.getItem('soleSA_wishlist');
+                    if (saved) {
+                        this.items = JSON.parse(saved);
+                    }
+                }
+            };
+
+            // Cart functionality
+            const cart = {
+                items: [],
+                
+                addItem: function(productId, size, price, title, image) {
+                    // Check if size is selected
+                    if (!size) {
+                        alert('Please select a size before adding to cart');
+                        return false;
+                    }
+                    
+                    this.items.push({
+                        id: Date.now(), // Unique ID for each cart item
+                        productId,
+                        size,
+                        price,
+                        title,
+                        image
+                    });
+                    this.saveToLocalStorage();
+                    this.updateCartUI();
+                    return true;
+                },
+                
+                removeItem: function(itemId) {
+                    this.items = this.items.filter(item => item.id !== itemId);
+                    this.saveToLocalStorage();
+                    this.updateCartUI();
+                },
+                
+                getTotal: function() {
+                    return this.items.reduce((total, item) => total + item.price, 0);
+                },
+                
+                saveToLocalStorage: function() {
+                    localStorage.setItem('soleSA_cart', JSON.stringify(this.items));
+                },
+                
+                loadFromLocalStorage: function() {
+                    const saved = localStorage.getItem('soleSA_cart');
+                    if (saved) {
+                        this.items = JSON.parse(saved);
+                    }
+                    this.updateCartUI();
+                },
+                
+                updateCartUI: function() {
+                    const cartCount = document.getElementById('cartCount');
+                    const cartItems = document.getElementById('cartItems');
+                    const cartTotal = document.getElementById('cartTotal');
+                    
+                    // Update cart count
+                    cartCount.textContent = this.items.length;
+                    
+                    // Update cart items list
+                    if (this.items.length === 0) {
+                        cartItems.innerHTML = '<div class="empty-cart-message">Your cart is empty</div>';
+                    } else {
+                        cartItems.innerHTML = this.items.map(item => `
+                            <div class="cart-item" data-item-id="${item.id}">
+                                <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                                <div class="cart-item-details">
+                                    <h4 class="cart-item-title">${item.title}</h4>
+                                    <p class="cart-item-size">Size: ${item.size}</p>
+                                    <p class="cart-item-price">R${item.price.toFixed(2)}</p>
+                                    <button class="cart-item-remove" data-item-id="${item.id}">Remove</button>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                    
+                    // Update total
+                    cartTotal.textContent = `R${this.getTotal().toFixed(2)}`;
+                },
+                
+                generateWhatsAppMessage: function() {
+                    let message = "Hi SoleSA, I'd like to purchase these items:\n\n";
+                    
+                    this.items.forEach((item, index) => {
+                        message += `${index + 1}. ${item.title} (Size: ${item.size}) - R${item.price.toFixed(2)}\n`;
+                    });
+                    
+                    message += `\nTotal: R${this.getTotal().toFixed(2)}\n\n`;
+                    message += "Please let me know the payment options available. Thank you!";
+                    
+                    return encodeURIComponent(message);
+                }
+            };
+
+            // DOM Elements
+            const priceRange = document.querySelector('.price-range');
+            const priceValue = document.querySelector('.price-value');
+            const cartModal = document.getElementById('cartModal');
+            const cartButton = document.getElementById('cartButton');
+            const cartClose = document.getElementById('cartClose');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            // Initialize wishlist buttons
+            function initWishlist() {
+                wishlist.loadFromLocalStorage();
+                
+                document.querySelectorAll('.wishlist-btn').forEach(btn => {
+                    const productId = btn.getAttribute('data-product-id');
+                    if (wishlist.isInWishlist(productId)) {
+                        btn.classList.add('active');
+                    }
+                    
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        this.classList.toggle('active');
+                        wishlist.toggleItem(productId);
+                    });
+                });
+            }
+            
+            // Initialize cart
+            function initCart() {
+                cart.loadFromLocalStorage();
+                
+                // Cart button click
+                cartButton.addEventListener('click', function() {
+                    cartModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                // Close cart modal
+                cartClose.addEventListener('click', function() {
+                    cartModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+                
+                // Close when clicking outside
+                cartModal.addEventListener('click', function(e) {
+                    if (e.target === cartModal) {
+                        cartModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+                
+                // Remove item from cart
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('cart-item-remove')) {
+                        const itemId = parseInt(e.target.getAttribute('data-item-id'));
+                        cart.removeItem(itemId);
+                    }
+                });
+                
+                // Checkout button
+                checkoutBtn.addEventListener('click', function() {
+                    if (cart.items.length === 0) {
+                        alert('Your cart is empty');
+                        return;
+                    }
+                    
+                    const whatsappNumber = '27752686169'; // Your WhatsApp number
+                    const message = cart.generateWhatsAppMessage();
+                    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+                });
+            }
+            
+            // Initialize size selection in product modal
+            function initSizeSelection() {
+                document.querySelectorAll('.size-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                    });
+                });
+            }
+            
+            // Add to cart functionality in product modal
+            function initAddToCart() {
+                const addToCartBtn = document.createElement('button');
+                addToCartBtn.className = 'btn add-to-cart-btn';
+                addToCartBtn.textContent = 'Add to Cart';
+                addToCartBtn.style.marginTop = '10px';
+                
+                // Insert the button in modal actions
+                const modalActions = document.querySelector('.modal-actions');
+                if (modalActions) {
+                    modalActions.appendChild(addToCartBtn);
+                }
+                
+                addToCartBtn.addEventListener('click', function() {
+                    const selectedSize = document.querySelector('.size-btn.selected');
+                    if (!selectedSize) {
+                        alert('Please select a size');
+                        return;
+                    }
+                    
+                    const size = selectedSize.getAttribute('data-size');
+                    const productId = parseInt(document.querySelector('.product-modal').getAttribute('data-product-id'));
+                    const product = products[productId];
+                    
+                    if (product) {
+                        const added = cart.addItem(
+                            productId,
+                            size,
+                            product.price,
+                            product.title,
+                            product.images[0]
+                        );
+                        
+                        if (added) {
+                            alert(`${product.title} (Size: ${size}) added to cart`);
+                            // Close the modal after adding to cart
+                            document.getElementById('productModal').style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Update price range display
+            function updatePriceValue() {
+                const value = priceRange.value;
+                priceValue.textContent = `Up to R${value}`;
+            }
+            
+            // Price range filter
+            priceRange.addEventListener('input', updatePriceValue);
+            priceRange.addEventListener('change', function() {
+                const maxPrice = parseInt(this.value);
+                filterProductsByPrice(maxPrice);
+            });
+            
+            // Category filtering
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    filterProducts(category, '');
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+                filterProducts(activeCategory, searchTerm);
+            });
+            
+            // Also trigger search when pressing Enter in search input
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    const activeCategory = document.querySelector('.category-btn.active').getAttribute('data-category');
+                    filterProducts(activeCategory, searchTerm);
+                }
+            });
+            
+            // Filter products by price
+            function filterProductsByPrice(maxPrice) {
+                productCards.forEach(card => {
+                    const productPrice = parseFloat(card.querySelector('.product-price').textContent.replace('R', '').replace(',', ''));
+                    const isVisible = productPrice <= maxPrice;
+                    card.style.display = isVisible ? 'block' : 'none';
+                });
+            }
+            
+            // Combined filter function
+            function filterProducts(category, searchTerm) {
+                let hasResults = false;
+                const maxPrice = parseInt(priceRange.value);
+                
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const productName = card.querySelector('.product-title').textContent.toLowerCase();
+                    const productPrice = parseFloat(card.querySelector('.product-price').textContent.replace('R', '').replace(',', ''));
+                    
+                    const categoryMatch = category === 'all' || cardCategory === category;
+                    const searchMatch = searchTerm === '' || productName.includes(searchTerm);
+                    const priceMatch = productPrice <= maxPrice;
+                    
+                    if (categoryMatch && searchMatch && priceMatch) {
+                        card.style.display = 'block';
+                        hasResults = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Show "no results" message if needed
+                const noResultsMessage = document.querySelector('.no-results');
+                if (!hasResults) {
+                    if (!noResultsMessage) {
+                        const productsGrid = document.querySelector('.products-grid');
+                        const message = document.createElement('div');
+                        message.className = 'no-results';
+                        message.textContent = 'No products found matching your search.';
+                        productsGrid.appendChild(message);
+                    }
+                } else if (noResultsMessage) {
+                    noResultsMessage.remove();
+                }
+            }
+
+            // Product Detail Modal functionality
+            const productModal = document.getElementById('productModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalMainImage = document.getElementById('modalMainImage');
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+            const modalProductTitle = document.getElementById('modalProductTitle');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalCategory = document.getElementById('modalCategory');
+            const modalPrice = document.getElementById('modalPrice');
+
+            // Product data with multiple images
+            const products = {
+                1: {
+                    id: 1,
+                    title: "Adidas Samba",
+                    category: "Sneakers",
+                    price: 999,
+                    oldPrice: 1950,
+                    description: "Premium leather sneakers with classic design. Perfect for both casual and sporty looks. Features a comfortable cushioned insole and durable rubber outsole.",
+                    images: [
+                        "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
+                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    ]
+                },
+                2: {
+                    id: 2,
+                    title: "Nike Nocta",
+                    category: "Sneakers",
+                    price: 1799,
+                    oldPrice: null,
+                    description: "Limited edition collaboration sneakers with premium materials and unique design elements. Features responsive cushioning and superior ankle support.",
+                    images: [
+                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
+                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    ]
+                },
+                3: {
+                    id: 3,
+                    title: "Nike shox TL",
+                    category: "Sneakers",
+                    price: 3199,
+                    oldPrice: 3499,
+                    description: "Performance sneakers with innovative shox technology for superior cushioning and energy return. Ideal for athletes and casual wear alike.",
+                    images: [
+                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
+                    ]
+                },
+                4: {
+                    id: 4,
+                    title: "Nike Shox TL",
+                    category: "Running",
+                    price: 2299,
+                    oldPrice: null,
+                    description: "Running shoes designed for maximum comfort and support. Lightweight yet durable with breathable materials for long-distance performance.",
+                    images: [
+                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    ]
+                },
+                5: {
+                    id: 5,
+                    title: "Nike Shox TL",
+                    category: "Running",
+                    price: 3499,
+                    oldPrice: 3799,
+                    description: "Premium running shoes with enhanced cushioning and stability features. Perfect for both training and competition.",
+                    images: [
+                        "https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
+                    ]
+                },
+                6: {
+                    id: 6,
+                    title: "Nike shox TL",
+                    category: "Running",
+                    price: 1899,
+                    oldPrice: null,
+                    description: "Lightweight running shoes with responsive cushioning. Designed for speed and comfort during your workouts.",
+                    images: [
+                        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    ]
+                },
+                7: {
+                    id: 7,
+                    title: "Vans Old Skool",
+                    category: "Casual",
+                    price: 1099,
+                    oldPrice: null,
+                    description: "Classic skate shoes with iconic side stripe. Durable canvas upper and vulcanized rubber sole for board feel and flexibility.",
+                    images: [
+                        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80",
+                        "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
+                    ]
+                },
+                8: {
+                    id: 8,
+                    title: "Converse Chuck Taylor",
+                    category: "Casual",
+                    price: 999,
+                    oldPrice: null,
+                    description: "The original basketball shoe turned cultural icon. Canvas upper with rubber toe cap and All Star ankle patch for classic style.",
+                    images: [
+                        "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
+                    ]
+                },
+                9: {
+                    id: 9,
+                    title: "New Balance 574",
+                    category: "Casual",
+                    price: 1599,
+                    oldPrice: 1799,
+                    description: "Retro-inspired sneakers with ENCAP midsole technology for comfort and support. Suede and mesh upper for breathability and style.",
+                    images: [
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
+                        "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80"
+                    ]
+                },
+                10: {
+                    id: 10,
+                    title: "Reebok Classic Leather",
+                    category: "Sneakers",
+                    price: 1499,
+                    oldPrice: null,
+                    description: "Timeless leather sneakers with soft cushioning and durable rubber outsole. Clean, minimalist design that pairs with everything.",
+                    images: [
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
+                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    ]
+                },
+                11: {
+                    id: 11,
+                    title: "Nike Dunk Low",
+                    category: "Sneakers",
+                    price: 2799,
+                    oldPrice: null,
+                    description: "Basketball-inspired sneakers with heritage styling. Leather upper with padded collar for comfort and support.",
+                    images: [
+                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
+                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    ]
+                },
+                12: {
+                    id: 12,
+                    title: "Puma Suede Classic",
+                    category: "Sneakers",
+                    price: 1299,
+                    oldPrice: 1499,
+                    description: "Iconic suede sneakers with Formstrip branding. Soft padded collar and rubber outsole for all-day comfort.",
+                    images: [
+                        "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
+                    ]
+                }
+            };
+
+            // Open modal when product is clicked
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't open modal if clicking on wishlist button
+                    if (e.target.classList.contains('wishlist-btn')) {
+                        return;
+                    }
+
+                    const productId = this.getAttribute('data-product-id');
+                    const product = products[productId];
+                    
+                    if (product) {
+                        // Set product ID on modal for reference
+                        productModal.setAttribute('data-product-id', productId);
+                        
+                        // Set modal content
+                        modalTitle.textContent = product.title;
+                        modalProductTitle.textContent = product.title;
+                        modalCategory.textContent = product.category;
+                        if (product.oldPrice) {
+                            modalPrice.innerHTML = `R${product.price} <span>R${product.oldPrice}</span>`;
+                        } else {
+                            modalPrice.innerHTML = `R${product.price}`;
+                        }
+                        
+                        // Set description
+                        document.querySelector('.modal-description').innerHTML = `
+                            <p>${product.description}</p>
+                        `;
+                        
+                        // Clear previous thumbnails
+                        thumbnailContainer.innerHTML = '';
+                        
+                        // Add images to modal
+                        product.images.forEach((img, index) => {
+                            const thumbnail = document.createElement('img');
+                            thumbnail.src = img;
+                            thumbnail.alt = `${product.title} view ${index + 1}`;
+                            thumbnail.className = 'thumbnail';
+                            if (index === 0) {
+                                thumbnail.classList.add('active');
+                                modalMainImage.src = img;
+                                modalMainImage.alt = `${product.title} main view`;
+                            }
+                            
+                            thumbnail.addEventListener('click', function() {
+                                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                                this.classList.add('active');
+                                modalMainImage.src = this.src;
+                            });
+                            
+                            thumbnailContainer.appendChild(thumbnail);
+                        });
+                        
+                        // Reset size selection
+                        document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+                        
+                        // Show modal
+                        productModal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Close modal
+            modalClose.addEventListener('click', function() {
+                productModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close when clicking outside modal content
+            productModal.addEventListener('click', function(e) {
+                if (e.target === productModal) {
+                    productModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && productModal.style.display === 'block') {
+                    productModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Initialize everything
+            initWishlist();
+            initCart();
+            initSizeSelection();
+            initAddToCart();
+            updatePriceValue();
+        });
+    </script>
+</body>
+</html>

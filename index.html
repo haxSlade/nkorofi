@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SoleSA - Premium Footwear</title>
+    <meta name="description" content="Wayne International SA - Premium Nike apparel and footwear in South Africa. Shop the latest collections with nationwide delivery.">
+    <meta name="keywords" content="Nike, sneakers, apparel, South Africa, ZAR, sportswear">
+    <title>Wayne&co-SA | Premium Nike Apparel & Footwear in South Africa</title>
     <style>
         /* CSS Reset and Base Styles */
         * {
@@ -81,8 +83,9 @@
             font-size: 0.9rem;
         }
         
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-links a:focus {
             color: #e74c3c;
+            outline: none;
         }
         
         /* Search Bar */
@@ -117,16 +120,16 @@
             font-size: 0.9rem;
         }
         
-        .search-btn:hover {
+        .search-btn:hover, .search-btn:focus {
             background-color: #c0392b;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 50vh;
+            height: 60vh;
             min-height: 300px;
             display: flex;
             flex-direction: column;
@@ -138,15 +141,24 @@
         }
         
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         .hero p {
-            font-size: 1rem;
-            max-width: 100%;
+            font-size: 1.2rem;
+            max-width: 600px;
             margin-bottom: 2rem;
             padding: 0 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .btn {
@@ -160,12 +172,41 @@
             font-weight: 600;
             transition: all 0.3s;
             font-size: 0.9rem;
+            cursor: pointer;
         }
         
-        .btn:hover {
+        .btn:hover, .btn:focus {
             background-color: #c0392b;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            outline: none;
+        }
+        
+        .secondary-btn {
+            background-color: #2c3e50;
+        }
+        
+        .secondary-btn:hover, .secondary-btn:focus {
+            background-color: #1a252f;
+        }
+        
+        /* Inclusive Banner */
+        .inclusive-banner {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+        }
+        
+        .inclusive-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .inclusive-banner p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
         
         /* Categories */
@@ -200,10 +241,19 @@
             flex-shrink: 0;
         }
         
-        .category-btn.active, .category-btn:hover {
+        .category-btn.active, .category-btn:hover, .category-btn:focus {
             background-color: #e74c3c;
             color: white;
             border-color: #e74c3c;
+            outline: none;
+        }
+        
+        /* Highlight apparel categories */
+        .category-btn[data-category="essentials"],
+        .category-btn[data-category="activewear"],
+        .category-btn[data-category="statement"] {
+            border: 2px solid #e74c3c;
+            font-weight: 600;
         }
         
         /* Price Filter */
@@ -258,15 +308,26 @@
             margin-bottom: 2rem;
         }
         
+        #apparel .section-title {
+            font-size: 2rem;
+            color: #e74c3c;
+        }
+        
         .section-title h2 {
             font-size: 1.8rem;
             margin-bottom: 0.8rem;
         }
         
+        /* Updated Product Cards with Uniform Sizes */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+        }
+        
+        #apparel .products-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
         
         .product-card {
@@ -277,6 +338,9 @@
             transition: transform 0.3s;
             cursor: pointer;
             position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
@@ -284,14 +348,18 @@
         }
         
         .product-img {
-            height: 180px;
+            height: 250px;
             width: 100%;
             object-fit: cover;
+            flex-shrink: 0;
         }
         
         .product-info {
             padding: 1rem;
             position: relative;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-title {
@@ -312,11 +380,32 @@
             border-radius: 4px;
         }
         
+        .product-meta {
+            display: flex;
+            gap: 8px;
+            margin: 8px 0;
+            flex-wrap: wrap;
+        }
+        
+        .product-tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            color: #555;
+        }
+        
+        .product-tag[data-tag="unisex"] {
+            background: #e74c3c;
+            color: white;
+        }
+        
         .product-price {
             font-weight: 700;
             color: #e74c3c;
             margin-bottom: 0.8rem;
             font-size: 1.1rem;
+            margin-top: auto;
         }
         
         .product-price span {
@@ -345,6 +434,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .wishlist-btn:hover, .wishlist-btn:focus {
+            color: #e74c3c;
+            outline: none;
         }
         
         .wishlist-btn.active {
@@ -398,8 +492,9 @@
             font-size: 0.8rem;
         }
         
-        .footer-links a:hover {
+        .footer-links a:hover, .footer-links a:focus {
             color: #e74c3c;
+            outline: none;
         }
         
         .social-icons {
@@ -536,6 +631,28 @@
             font-size: 0.9rem;
         }
         
+        /* Fit Guide */
+        .fit-guide {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .fit-guide h4 {
+            margin-bottom: 5px;
+        }
+        
+        .fit-btn {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0;
+        }
+        
         /* Size Selection */
         .size-selection {
             margin: 15px 0;
@@ -562,15 +679,60 @@
             transition: all 0.3s;
         }
         
-        .size-btn:hover, .size-btn.selected {
+        .size-btn:hover, .size-btn:focus, .size-btn.selected {
             border-color: #e74c3c;
             color: #e74c3c;
+            outline: none;
         }
 
         .modal-actions {
             display: flex;
             gap: 10px;
             margin-top: 15px;
+        }
+
+        /* Quantity Selector */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .quantity-selector h4 {
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-btn:hover, .quantity-btn:focus {
+            background-color: #f0f0f0;
+            outline: none;
+        }
+        
+        .quantity-input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
         /* WhatsApp Button */
@@ -593,8 +755,9 @@
             transition: transform 0.3s;
         }
         
-        .whatsapp-btn:hover {
+        .whatsapp-btn:hover, .whatsapp-btn:focus {
             transform: scale(1.1);
+            outline: none;
         }
 
         /* Cart Button */
@@ -742,6 +905,30 @@
             margin-bottom: 5px;
         }
 
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-quantity button {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .cart-item-quantity input {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
         .cart-item-price {
             font-weight: 600;
             color: #e74c3c;
@@ -763,10 +950,82 @@
             color: #666;
         }
 
-        .add-to-cart-btn {
-            margin-top: 10px;
+        /* Size Guide Modal */
+        .size-guide-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1001;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .size-guide-content {
+            background-color: white;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .size-guide-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            float: right;
+        }
+
+        .size-guide-modal table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .size-guide-modal th, .size-guide-modal td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .size-guide-modal th {
+            background-color: #f2f2f2;
+        }
+
+        /* Loading Indicator */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
         }
         
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #e74c3c;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Responsive Design */
         @media (min-width: 768px) {
             .modal-body {
@@ -820,54 +1079,77 @@
             .hero p {
                 font-size: 0.9rem;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Indicator -->
+    <div class="loading" id="loadingIndicator">
+        <div class="loading-spinner"></div>
+    </div>
+
     <header>
         <nav class="navbar">
             <div class="nav-top">
-                <a href="#" class="logo">Sole<span>SA</span></a>
+                <a href="#" class="logo">Wayne&co<span>SA</span></a>
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#products">Shop</a></li>
+                <li><a href="#apparel">Apparel</a></li>
+                <li><a href="#footwear">Footwear</a></li>
                 <li><a href="#">New Arrivals</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search shoes...">
+                <input type="text" class="search-input" placeholder="Search products..." aria-label="Search products">
                 <button class="search-btn">Search</button>
             </div>
         </nav>
     </header>
     
-    <section class="hero">
-        <h1>Step Into Style</h1>
-        <p>Discover South Africa's finest footwear collection with premium sneakers, running shoes, and casual wear for every occasion.</p>
-        <a href="#products" class="btn">Shop Now</a>
+    <section class="hero" aria-label="Featured products">
+        <h1>Universal Style for All</h1>
+        <p>Keep Calm And Just Do It</p>
+        <div class="hero-buttons">
+            <a href="#apparel" class="btn">Shop Apparel</a>
+            <a href="#footwear" class="btn secondary-btn">Explore Footwear</a>
+        </div>
     </section>
+    
+    <div class="inclusive-banner">
+        <h2>NIKE</h2>
+        <p>just do it</p>
+        <a href="#apparel" class="btn">Shop the Collection</a>
+    </div>
     
     <section class="categories">
         <div class="section-title">
             <h2>Our Collections</h2>
-            <p>Find the perfect pair for your style</p>
+            <p>Inclusive designs for all identities</p>
         </div>
         <div class="category-buttons">
             <button class="category-btn active" data-category="all">All</button>
+            <!-- Apparel categories -->
+            <button class="category-btn" data-category="essentials">Daily Essentials</button>
+            <button class="category-btn" data-category="activewear">Activewear</button>
+            <button class="category-btn" data-category="statement">Statement Pieces</button>
+            <!-- Footwear categories -->
             <button class="category-btn" data-category="sneakers">Sneakers</button>
-            <button class="category-btn" data-category="running">Running</button>
-            <button class="category-btn" data-category="casual">Casual</button>
-            <button class="category-btn" data-category="basketball">Basketball</button>
-            <button class="category-btn" data-category="limited">Limited</button>
+            <button class="category-btn" data-category="performance">Performance</button>
+            <button class="category-btn" data-category="minimalist">Minimalist</button>
         </div>
     </section>
     
     <div class="price-filter">
         <h4>Price Range</h4>
         <div class="price-range-container">
-            <input type="range" class="price-range" min="0" max="5000" step="100" value="5000">
+            <input type="range" class="price-range" min="0" max="5000" step="100" value="5000" aria-label="Price range filter">
             <span class="price-value">Up to R5000</span>
         </div>
     </div>
@@ -876,140 +1158,208 @@
         <h3>🇿🇦 Free Shipping on All Orders Over R3000 Nationwide!</h3>
     </div>
     
-    <section class="products" id="products">
+    <section class="products" id="apparel">
+        <div class="section-title">
+            <h2>Featured Apparel</h2>
+            <p>Designed to fit and flatter every body</p>
+        </div>
         <div class="products-grid">
-            <!-- Sneakers -->
-            <div class="product-card" data-category="sneakers" data-product-id="1">
-                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Adidas Samba" class="product-img">
+            <!-- Apparel Product 1 -->
+            <div class="product-card" data-category="essentials" data-product-id="ap1">
+                <img src="pictures/WhatsApp Image 2025-07-20 at 23.26.04_b918be34.jpg" alt="Nike Reversable Jacket" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="1">❤️</button>
-                    <span class="product-category">Sneakers</span>
-                    <h3 class="product-title">Adidas Samba</h3>
-                    <p class="product-price">R999 <span>R1,950</span></p>
+                    <button class="wishlist-btn" data-product-id="ap1" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Daily Essentials</span>
+                    <h3 class="product-title">Nike Reversable Jacket</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">Extended Sizing</span>
+                    </div>
+                    <p class="product-price">R999 <span>R1299</span></p>
                 </div>
             </div>
             
-            <div class="product-card" data-category="sneakers" data-product-id="2">
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nike Nocta" class="product-img">
+            <!-- Apparel Product 2 -->
+            <div class="product-card" data-category="activewear" data-product-id="ap2">
+                <img src="pictures/WhatsApp Image 2025-07-20 at 23.26.05_d7d67c30.jpg" alt="Nike Tracksuit" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="2">❤️</button>
-                    <span class="product-category">Sneakers</span>
-                    <h3 class="product-title">Nike Nocta</h3>
-                    <p class="product-price">R1,799</p>
+                    <button class="wishlist-btn" data-product-id="ap2" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Activewear</span>
+                    <h3 class="product-title">Nike Tracksuit</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">Moisture-Wicking</span>
+                    </div>
+                    <p class="product-price">R1599</p>
                 </div>
             </div>
             
-            <div class="product-card" data-category="sneakers" data-product-id="3">
-                <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Nike shox TL" class="product-img">
+            <!-- Apparel Product 3 -->
+            <div class="product-card" data-category="statement" data-product-id="ap3">
+                <img src="pictures/p1.jpg" alt="Nike T-Shirt" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="3">❤️</button>
-                    <span class="product-category">Sneakers</span>
-                    <h3 class="product-title">Nike shox TL</h3>
-                    <p class="product-price">R3,199 <span>R3,499</span></p>
+                    <button class="wishlist-btn" data-product-id="ap3" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Statement Pieces</span>
+                    <h3 class="product-title">Nike Air Max</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">Sustainable</span>
+                    </div>
+                    <p class="product-price">R450 <span>R500</span></p>
                 </div>
             </div>
             
-            <!-- Running -->
-            <div class="product-card" data-category="running" data-product-id="4">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nike Shox TL" class="product-img">
+            <!-- Apparel Product 4 -->
+            <div class="product-card" data-category="essentials" data-product-id="ap4">
+                <img src="pictures/p3.jpg" alt="Linen Shirt" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="4">❤️</button>
-                    <span class="product-category">Running</span>
-                    <h3 class="product-title">Nike Shox TL</h3>
-                    <p class="product-price">R2,299</p>
+                    <button class="wishlist-btn" data-product-id="ap4" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Daily Essentials</span>
+                    <h3 class="product-title">Nike Tee</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">Breathable</span>
+                    </div>
+                    <p class="product-price">R450</p>
                 </div>
             </div>
-            
-            <div class="product-card" data-category="running" data-product-id="5">
-                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nike Shox TL" class="product-img">
+
+            <!-- Apparel Product 5 -->
+            <div class="product-card" data-category="essentials" data-product-id="ap5">
+                <img src="pictures/p4.jpg" alt="Classic Hoodie" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="5">❤️</button>
-                    <span class="product-category">Running</span>
-                    <h3 class="product-title">Nike Shox TL</h3>
-                    <p class="product-price">R3,499 <span>R3,799</span></p>
+                    <button class="wishlist-btn" data-product-id="ap5" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Daily Essentials</span>
+                    <h3 class="product-title">Nike swoosh</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">All-Season</span>
+                    </div>
+                    <p class="product-price">R450<span>R500</span></p>
                 </div>
             </div>
-            
-            <div class="product-card" data-category="running" data-product-id="6">
-                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Nike shox TL" class="product-img">
+
+            <!-- Apparel Product 6 -->
+            <div class="product-card" data-category="activewear" data-product-id="ap6">
+                <img src="pictures/IMG-20250725-WA0016.jpg" alt="Nike swoosh Jacket" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="6">❤️</button>
-                    <span class="product-category">Running</span>
-                    <h3 class="product-title">Nike shox TL</h3>
-                    <p class="product-price">R1,899</p>
-                </div>
-            </div>
-            
-            <!-- Casual -->
-            <div class="product-card" data-category="casual" data-product-id="7">
-                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80" alt="Vans Old Skool" class="product-img">
-                <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="7">❤️</button>
-                    <span class="product-category">Casual</span>
-                    <h3 class="product-title">Vans Old Skool</h3>
-                    <p class="product-price">R1,099</p>
-                </div>
-            </div>
-            
-            <div class="product-card" data-category="casual" data-product-id="8">
-                <img src="https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Converse Chuck Taylor" class="product-img">
-                <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="8">❤️</button>
-                    <span class="product-category">Casual</span>
-                    <h3 class="product-title">Converse Chuck Taylor</h3>
+                    <button class="wishlist-btn" data-product-id="ap6" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Activewear</span>
+                    <h3 class="product-title">Nike swoosh Jacket</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">Quick-Dry</span>
+                    </div>
                     <p class="product-price">R999</p>
                 </div>
             </div>
-            
-            <div class="product-card" data-category="casual" data-product-id="9">
-                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80" alt="New Balance 574" class="product-img">
+
+            <!-- Apparel Product 7 -->
+            <div class="product-card" data-category="statement" data-product-id="ap7">
+                <img src="pictures/IMG-20250725-WA0017.jpg" alt="Nike Bomber Jacket" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="9">❤️</button>
-                    <span class="product-category">Casual</span>
-                    <h3 class="product-title">New Balance 574</h3>
-                    <p class="product-price">R1,599 <span>R1,799</span></p>
+                    <button class="wishlist-btn" data-product-id="ap7" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Statement Pieces</span>
+                    <h3 class="product-title">Nike Bomber Jacket</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">Water-Resistant</span>
+                    </div>
+                    <p class="product-price">R1,299 <span>R1,599</span></p>
+                </div>
+            </div>
+
+            <!-- Apparel Product 8 -->
+            <div class="product-card" data-category="essentials" data-product-id="ap8">
+                <img src="pictures/IMG-20250725-WA0018.jpg" alt="Basic T-Shirt Pack" class="product-img" loading="lazy">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="ap8" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Daily Essentials</span>
+                    <h3 class="product-title">Nike puffer jacket</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex Fit</span>
+                        <span class="product-tag">3-Pack</span>
+                    </div>
+                    <p class="product-price">R700<span>R799</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="products" id="footwear">
+        <div class="section-title">
+            <h2>Featured Footwear</h2>
+            <p>Complete your universal look</p>
+        </div>
+        <div class="products-grid">
+            <!-- Footwear Product 1 -->
+            <div class="product-card" data-category="sneakers" data-product-id="fw1">
+                <img src="pictures/nike shox G.jpg" alt="Urban Sneakers" class="product-img" loading="lazy">
+                <div class="product-info">
+                    <button class="wishlist-btn" data-product-id="fw1" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Sneakers</span>
+                    <h3 class="product-title">Urban Sneakers</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex</span>
+                        <span class="product-tag">All-Day Comfort</span>
+                    </div>
+                    <p class="product-price">R1,399</p>
                 </div>
             </div>
             
-            <!-- More Sneakers -->
-            <div class="product-card" data-category="sneakers" data-product-id="10">
-                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80" alt="Reebok Classic Leather" class="product-img">
+            <!-- Footwear Product 2 -->
+            <div class="product-card" data-category="performance" data-product-id="fw2">
+                <img src="pictures/W+NIKE+AIR+MAX+PORTAL (1) copy 2.avif" alt="Running Shoes" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="10">❤️</button>
-                    <span class="product-category">Sneakers</span>
-                    <h3 class="product-title">Reebok Classic Leather</h3>
-                    <p class="product-price">R1,499</p>
+                    <button class="wishlist-btn" data-product-id="fw2" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Performance</span>
+                    <h3 class="product-title">Nike Air Max Portal</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex</span>
+                        <span class="product-tag">Shock Absorption</span>
+                    </div>
+                    <p class="product-price">R1,799 <span>R2,099</span></p>
                 </div>
             </div>
             
-            <div class="product-card" data-category="sneakers" data-product-id="11">
-                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nike Dunk Low" class="product-img">
+            <!-- Footwear Product 3 -->
+            <div class="product-card" data-category="minimalist" data-product-id="fw3">
+                <img src="pictures/IMG-20250725-WA0019.jpg" alt="Canvas Slip-ons" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="11">❤️</button>
-                    <span class="product-category">Sneakers</span>
-                    <h3 class="product-title">Nike Dunk Low</h3>
-                    <p class="product-price">R2,799</p>
+                    <button class="wishlist-btn" data-product-id="fw3" aria-label="Add to wishlist">❤️</button>
+                    <span class="product-category">Performance</span>
+                    <h3 class="product-title">Nike running shoes</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex</span>
+                        <span class="product-tag">Lightweight</span>
+                    </div>
+                    <p class="product-price">R899</p>
                 </div>
             </div>
             
-            <div class="product-card" data-category="sneakers" data-product-id="12">
-                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Puma Suede Classic" class="product-img">
+            <!-- Footwear Product 4 -->
+            <div class="product-card" data-category="sneakers" data-product-id="fw4">
+                <img src="pictures/Nike-Dunk-Low-Kentucky-CU1726-100-Store-List-01.webp" alt="High-Top Sneakers" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <button class="wishlist-btn" data-product-id="12">❤️</button>
+                    <button class="wishlist-btn" data-product-id="fw4" aria-label="Add to wishlist">❤️</button>
                     <span class="product-category">Sneakers</span>
-                    <h3 class="product-title">Puma Suede Classic</h3>
-                    <p class="product-price">R1,299 <span>R1,499</span></p>
+                    <h3 class="product-title">High-Top Sneakers</h3>
+                    <div class="product-meta">
+                        <span class="product-tag" data-tag="unisex">Unisex</span>
+                        <span class="product-tag">Ankle Support</span>
+                    </div>
+                    <p class="product-price">R1,599</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Product Detail Modal -->
-    <div class="product-modal" id="productModal">
+    <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="modalProductTitle">Product Details</h2>
-                <button class="modal-close" id="modalClose">&times;</button>
+                <button class="modal-close" id="modalClose" aria-label="Close product details">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-gallery">
@@ -1019,41 +1369,147 @@
                     </div>
                 </div>
                 <div class="modal-details">
-                    <span class="modal-category" id="modalCategory">Sneakers</span>
-                    <h1 class="modal-title" id="modalTitle">Adidas Samba</h1>
-                    <p class="modal-price" id="modalPrice">R999 <span>R1,950</span></p>
-                    <div class="modal-description">
-                        <p>Premium leather sneakers with classic design. Perfect for both casual and sporty looks. Features a comfortable cushioned insole and durable rubber outsole.</p>
-                        <p>Available in multiple colors and sizes. Handcrafted with attention to detail for maximum comfort and style.</p>
+                    <span class="modal-category" id="modalCategory">Category</span>
+                    <h1 class="modal-title" id="modalTitle">Product Title</h1>
+                    <p class="modal-price" id="modalPrice">R0.00</p>
+                    <div class="modal-description" id="modalDescription">
+                        Product description will go here.
                     </div>
+                    
+                    <div class="fit-guide" id="fitGuide">
+                        <h4>Fit Information</h4>
+                        <p>This item features our Universal Fit sizing - designed to complement all body types.</p>
+                        <button class="fit-btn" id="fitGuideBtn">View Size Guide</button>
+                    </div>
+                    
                     <div class="size-selection">
                         <h4>Size:</h4>
-                        <div class="size-options">
-                            <button class="size-btn" data-size="5">5</button>
-                            <button class="size-btn" data-size="6">6</button>
-                            <button class="size-btn" data-size="7">7</button>
-                            <button class="size-btn" data-size="8">8</button>
-                            <button class="size-btn" data-size="9">9</button>
-                            <button class="size-btn" data-size="10">10</button>
+                        <div class="size-options" id="sizeOptions">
+                            <!-- Size options will be added dynamically -->
                         </div>
                     </div>
+                    
+                    <div class="quantity-selector">
+                        <h4>Quantity:</h4>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" id="decreaseQty">-</button>
+                            <input type="number" class="quantity-input" id="quantityInput" min="1" max="10" value="1">
+                            <button class="quantity-btn" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    
                     <div class="modal-actions">
-                        <!-- Add to Cart button will be inserted here -->
+                        <button class="btn add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
+    <!-- Size Guide Modal -->
+    <div class="size-guide-modal" id="sizeGuideModal" role="dialog" aria-modal="true" aria-labelledby="sizeGuideTitle">
+        <div class="size-guide-content">
+            <button class="size-guide-close" id="sizeGuideClose" aria-label="Close size guide">&times;</button>
+            <h2 id="sizeGuideTitle">Universal Size Guide</h2>
+            <p>All measurements are in centimeters (cm)</p>
+            
+            <h3>Apparel</h3>
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Chest</th>
+                    <th>Waist</th>
+                    <th>Hip</th>
+                    <th>Length</th>
+                </tr>
+                <tr>
+                    <td>XS</td>
+                    <td>81-86</td>
+                    <td>66-71</td>
+                    <td>86-91</td>
+                    <td>62</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>86-91</td>
+                    <td>71-76</td>
+                    <td>91-96</td>
+                    <td>64</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>91-96</td>
+                    <td>76-81</td>
+                    <td>96-101</td>
+                    <td>66</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>96-101</td>
+                    <td>81-86</td>
+                    <td>101-106</td>
+                    <td>68</td>
+                </tr>
+                <tr>
+                    <td>XL</td>
+                    <td>101-106</td>
+                    <td>86-91</td>
+                    <td>106-111</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>XXL</td>
+                    <td>106-111</td>
+                    <td>91-96</td>
+                    <td>111-116</td>
+                    <td>72</td>
+                </tr>
+            </table>
+            
+            <h3>Footwear</h3>
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>EU</th>
+                    <th>US</th>
+                    <th>UK</th>
+                    <th>Foot Length (cm)</th>
+                </tr>
+                <tr>
+                    <td>Small</td>
+                    <td>36-38</td>
+                    <td>5-7</td>
+                    <td>3-5</td>
+                    <td>23-24.5</td>
+                </tr>
+                <tr>
+                    <td>Medium</td>
+                    <td>39-41</td>
+                    <td>7.5-9.5</td>
+                    <td>6-8</td>
+                    <td>25-26.5</td>
+                </tr>
+                <tr>
+                    <td>Large</td>
+                    <td>42-44</td>
+                    <td>10-12</td>
+                    <td>9-11</td>
+                    <td>27-28.5</td>
+                </tr>
+            </table>
+            
+            <p><strong>Note:</strong> Our universal sizing is designed to accommodate a wide range of body types. If you're between sizes, we recommend sizing up for a relaxed fit or down for a more fitted look.</p>
+        </div>
+    </div>
+    
     <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
+    <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
         <div class="cart-content">
             <div class="cart-header">
-                <h2>Your Cart</h2>
-                <button class="cart-close" id="cartClose">&times;</button>
+                <h2 id="cartTitle">Your Cart</h2>
+                <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
             </div>
             <div class="cart-body" id="cartItems">
-                <!-- Cart items will be added here dynamically -->
                 <div class="empty-cart-message">Your cart is empty</div>
             </div>
             <div class="cart-footer">
@@ -1068,34 +1524,278 @@
     
     <!-- Cart Button -->
     <div class="cart-btn-container">
-        <button class="cart-btn" id="cartButton">
+        <button class="cart-btn" id="cartButton" aria-label="View cart">
             🛒 <span class="cart-count" id="cartCount">0</span>
         </button>
     </div>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/27752686169" class="whatsapp-btn" target="_blank">💬</a>
+    <a href="https://wa.me/27752686169" class="whatsapp-btn" target="_blank" aria-label="Contact us on WhatsApp">💬</a>
     
     <footer>
         <div class="social-icons">
-            <a href="#">📱</a>
-            <a href="#">📘</a>
-            <a href="#">📸</a>
-            <a href="#">🐦</a>
+            <a href="#" aria-label="Facebook">📱</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="Twitter">🐦</a>
         </div>
         <ul class="footer-links">
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Returns</a></li>
+            
             <li><a href="contact.html">Contact</a></li>
             <li><a href="#">FAQ</a></li>
+            <li><a href="#">Size Guide</a></li>
         </ul>
-        <p>&copy; 2023 SoleSA. All rights reserved. Prices in South African Rand (ZAR)</p>
+        <p>&copy; 2023 Wayne&co-SA. All rights reserved. Prices in South African Rand (ZAR)</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Existing wishlist functionality
+            // Show loading indicator
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            loadingIndicator.style.display = 'flex';
+            
+            // Simulate loading (in a real app, you'd load data here)
+            setTimeout(function() {
+                loadingIndicator.style.display = 'none';
+            }, 1000);
+
+            // Product data with unisex focus
+            const products = {
+                // Apparel Products
+                ap1: {
+                    id: "ap1",
+                    title: "Nike Reversable Jacket",
+                    category: "Daily Essentials",
+                    type: "apparel",
+                    tags: ["unisex", "extended sizing"],
+                    price: 999,
+                    oldPrice: 1299,
+                    description: "Versatile reversible jacket with two distinct looks. Made from lightweight, water-resistant fabric with a breathable lining. Features zippered pockets and adjustable cuffs.",
+                    images: [
+                        "pictures/WhatsApp Image 2025-07-20 at 23.26.04_b918be34.jpg",
+                        "pictures/WhatsApp Image 2025-07-20 at 22.38.22_1806c67d.jpg",
+                        "pictures/WhatsApp Image 2025-07-20 at 22.38.28_00d1170f.jpg"
+                    ],
+                    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+                    measurements: {
+                        chest: "86-91cm (S) to 106-111cm (XXL)",
+                        length: "64cm (S) to 72cm (XXL)"
+                    }
+                },
+                ap2: {
+                    id: "ap2",
+                    title: "Nike Tracksuit",
+                    category: "Activewear",
+                    type: "apparel",
+                    tags: ["unisex", "performance"],
+                    price: 1600,
+                    oldPrice: 2099,
+                    description: "High-performance tracksuit designed for both workouts and casual wear. Made from moisture-wicking fabric with stretch for full range of motion.",
+                    images: [
+                        "pictures/WhatsApp Image 2025-07-20 at 23.26.05_d7d67c30.jpg",
+                        "pictures/WhatsApp Image 2025-07-20 at 23.26.05_6f56ded8.jpg",
+                        "pictures/11111111.jpg"
+                    ],
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    measurements: {
+                        waist: "71-76cm (S) to 86-91cm (XL)",
+                        inseam: "76cm (all sizes)"
+                    }
+                },
+                ap3: {
+                    id: "ap3",
+                    title: "Nike Air Max",
+                    category: "Statement Pieces",
+                    type: "apparel",
+                    tags: ["unisex", "sustainable"],
+                    price: 450,
+                    oldPrice: 500,
+                    description: "Bold statement tee made from organic cotton. Features a contemporary fit with a slightly relaxed silhouette.",
+                    images: [
+                        "pictures/p1.jpg",
+                        "pictures/p2.jpg",
+                        "pictures/p2.jpg"
+                    ],
+                    sizes: ["S", "M", "L", "XL"],
+                    measurements: {
+                        chest: "91-96cm (M) to 101-106cm (XL)",
+                        length: "66cm (M) to 70cm (XL)"
+                    }
+                },
+                ap4: {
+                    id: "ap4",
+                    title: "Nike Tee",
+                    category: "Daily Essentials",
+                    type: "apparel",
+                    tags: ["unisex", "breathable"],
+                    price: 450,
+                    oldPrice: 500,
+                    description: "Classic crew neck t-shirt made from premium cotton. Features a tailored fit that flatters all body types.",
+                    images: [
+                        "pictures/p3.jpg",
+                        "pictures/p4.jpg",
+                        "pictures/p5.jpg"
+                    ],
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    measurements: {
+                        chest: "81-86cm (XS) to 101-106cm (XL)",
+                        length: "68cm (XS) to 72cm (XL)"
+                    }
+                },
+                ap5: {
+                    id: "ap5",
+                    title: "Nike swoosh",
+                    category: "Daily Essentials",
+                    type: "apparel",
+                    tags: ["unisex", "all-season"],
+                    price: 450,
+                    oldPrice: 500,
+                    description: "Comfortable hoodie perfect for all seasons. Made from soft cotton blend with a relaxed fit.",
+                    images: [
+                        "pictures/p4.jpg",
+                        "pictures/p5.jpg",
+                        "pictures/p5.jpg"
+                    ],
+                    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+                    measurements: {
+                        chest: "86-91cm (S) to 106-111cm (XXL)",
+                        length: "64cm (S) to 72cm (XXL)"
+                    }
+                },
+                ap6: {
+                    id: "ap6",
+                    title: "Nike swoosh Jacket",
+                    category: "Activewear",
+                    type: "apparel",
+                    tags: ["unisex", "quick-dry"],
+                    price: 999,
+                    oldPrice: null,
+                    description: "Performance jacket designed for workouts and casual wear. Made from quick-dry fabric with stretch for full range of motion.",
+                    images: [
+                        "pictures/IMG-20250725-WA0016.jpg",
+                        "pictures/IMG-20250725-WA0016.jpg",
+                        "pictures/IMG-20250725-WA0016.jpg"
+                    ],
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    measurements: {
+                        chest: "86-91cm (S) to 106-111cm (XL)",
+                        length: "64cm (S) to 72cm (XL)"
+                    }
+                },
+                ap7: {
+                    id: "ap7",
+                    title: "Nike Bomber Jacket",
+                    category: "Statement Pieces",
+                    type: "apparel",
+                    tags: ["unisex", "water-resistant"],
+                    price: 1299,
+                    oldPrice: 1599,
+                    description: "Stylish bomber jacket with a contemporary fit. Made from water-resistant nylon with quilted lining for warmth. Features ribbed cuffs and hem for a snug fit.",
+                    images: [
+                        "pictures/IMG-20250725-WA0017.jpg",
+                        "pictures/IMG-20250725-WA0017.jpg",
+                        "pictures/IMG-20250725-WA0017.jpg"
+                    ],
+                    sizes: ["S", "M", "L", "XL"],
+                    measurements: {
+                        chest: "91-96cm (M) to 101-106cm (XL)",
+                        length: "58cm (M) to 62cm (XL)"
+                    }
+                },
+                ap8: {
+                    id: "ap8",
+                    title: "Nike puffer jacket",
+                    category: "Daily Essentials",
+                    type: "apparel",
+                    tags: ["unisex", "3-pack"],
+                    price: 700,
+                    oldPrice: 799,
+                    description: "Essential puffer jacket for everyday wear. Made from soft materials with reinforced stitching. Features a classic fit for all-day comfort.",
+                    images: [
+                        "pictures/IMG-20250725-WA0018.jpg",
+                        "pictures/IMG-20250725-WA0018.jpg",
+                        "pictures/IMG-20250725-WA0018.jpg"
+                    ],
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                    measurements: {
+                        chest: "81-86cm (XS) to 101-106cm (XL)",
+                        length: "68cm (XS) to 72cm (XL)"
+                    }
+                },
+                
+                // Footwear Products
+                fw1: {
+                    id: "fw1",
+                    title: "Urban Sneakers",
+                    category: "Sneakers",
+                    type: "footwear",
+                    tags: ["unisex", "comfort"],
+                    price: 1299,
+                    oldPrice: null,
+                    description: "Versatile sneakers designed for urban exploration. Features a cushioned insole, durable rubber outsole, and breathable upper. True to size with a roomy toe box.",
+                    images: [
+                        "pictures/nike shox G.jpg",
+                        "pictures/nike shox bb.jpg",
+                        "pictures/nike shox f.jpg"
+                    ],
+                    sizes: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    fit: "Standard width, slightly roomy toe box"
+                },
+                fw2: {
+                    id: "fw2",
+                    title: "Nike Air Max Portal",
+                    category: "Performance",
+                    type: "footwear",
+                    tags: ["unisex", "performance"],
+                    price: 1799,
+                    oldPrice: 2099,
+                    description: "High-performance running shoes with responsive cushioning. Engineered for neutral runners with a lightweight, breathable upper and shock-absorbing midsole.",
+                    images: [
+                        "pictures/W+NIKE+AIR+MAX+PORTAL (1).avif",
+                        "pictures/products.avif",
+                        "pictures/W+NIKE+AIR+MAX+PORTAL.avif"
+                    ],
+                    sizes: [4, 5, 6, 7, 8, 9, 10, 11],
+                    fit: "Medium width, secure heel counter"
+                },
+                fw3: {
+                    id: "fw3",
+                    title: "nike running shoes",
+                    category: "Minimalist",
+                    type: "footwear",
+                    tags: ["unisex", "minimalist"],
+                    price: 899,
+                    oldPrice: null,
+                    description: "Simple and comfortable slip-on shoes with a minimalist design. Features a flexible sole and breathable canvas upper. Perfect for casual everyday wear.",
+                    images: [
+                        "pictures/IMG-20250725-WA0019.jpg",
+                        "pictures/IMG-20250725-WA0020.jpg",
+                        "pictures/IMG-20250725-WA0021.jpg"
+                    ],
+                    sizes: [4, 5, 6, 7, 8, 9, 10],
+                    fit: "Standard width, easy on/off"
+                },
+                fw4: {
+                    id: "fw4",
+                    title: "High-Top Sneakers",
+                    category: "Sneakers",
+                    type: "footwear",
+                    tags: ["unisex", "support"],
+                    price: 1599,
+                    oldPrice: null,
+                    description: "Classic high-top sneakers with ankle support. Features a padded collar, reinforced toe cap, and grippy rubber outsole. Timeless style meets modern comfort.",
+                    images: [
+                        "pictures/Nike-Dunk-Low-Kentucky-CU1726-100-Store-List-01.webp",
+                        "pictures/NIKE+DUNK+LOW+RETRO.avif",
+                        "pictures/OIP (1).webp"
+                    ],
+                    sizes: [5, 6, 7, 8, 9, 10, 11],
+                    fit: "Standard width, padded ankle support"
+                }
+            };
+
+            // Initialize wishlist
             const wishlist = {
                 items: [],
                 
@@ -1114,39 +1814,66 @@
                 },
                 
                 saveToLocalStorage: function() {
-                    localStorage.setItem('soleSA_wishlist', JSON.stringify(this.items));
+                    localStorage.setItem('Wayne&co-SA_wishlist', JSON.stringify(this.items));
                 },
                 
                 loadFromLocalStorage: function() {
-                    const saved = localStorage.getItem('soleSA_wishlist');
+                    const saved = localStorage.getItem('Wayne&co-SA_wishlist');
                     if (saved) {
                         this.items = JSON.parse(saved);
                     }
                 }
             };
 
-            // Cart functionality
+            // Initialize cart
             const cart = {
                 items: [],
                 
-                addItem: function(productId, size, price, title, image) {
+                addItem: function(productId, size, price, title, image, quantity = 1) {
                     // Check if size is selected
                     if (!size) {
                         alert('Please select a size before adding to cart');
                         return false;
                     }
                     
-                    this.items.push({
-                        id: Date.now(), // Unique ID for each cart item
-                        productId,
-                        size,
-                        price,
-                        title,
-                        image
-                    });
+                    // Check if item already exists in cart with same size
+                    const existingItemIndex = this.items.findIndex(
+                        item => item.productId === productId && item.size === size
+                    );
+                    
+                    if (existingItemIndex !== -1) {
+                        // Update quantity if item already exists
+                        this.items[existingItemIndex].quantity += quantity;
+                    } else {
+                        // Add new item to cart
+                        this.items.push({
+                            id: Date.now(), // Unique ID for each cart item
+                            productId,
+                            size,
+                            price,
+                            title,
+                            image,
+                            quantity
+                        });
+                    }
+                    
                     this.saveToLocalStorage();
                     this.updateCartUI();
                     return true;
+                },
+                
+                updateItemQuantity: function(itemId, newQuantity) {
+                    const itemIndex = this.items.findIndex(item => item.id === itemId);
+                    
+                    if (itemIndex !== -1) {
+                        if (newQuantity <= 0) {
+                            this.removeItem(itemId);
+                        } else {
+                            this.items[itemIndex].quantity = newQuantity;
+                            this.saveToLocalStorage();
+                            this.updateCartUI();
+                        }
+                    }
                 },
                 
                 removeItem: function(itemId) {
@@ -1156,15 +1883,15 @@
                 },
                 
                 getTotal: function() {
-                    return this.items.reduce((total, item) => total + item.price, 0);
+                    return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
                 },
                 
                 saveToLocalStorage: function() {
-                    localStorage.setItem('soleSA_cart', JSON.stringify(this.items));
+                    localStorage.setItem('Wayne&co-SA_cart', JSON.stringify(this.items));
                 },
                 
                 loadFromLocalStorage: function() {
-                    const saved = localStorage.getItem('soleSA_cart');
+                    const saved = localStorage.getItem('Wayne&co-SA_cart');
                     if (saved) {
                         this.items = JSON.parse(saved);
                     }
@@ -1176,8 +1903,9 @@
                     const cartItems = document.getElementById('cartItems');
                     const cartTotal = document.getElementById('cartTotal');
                     
-                    // Update cart count
-                    cartCount.textContent = this.items.length;
+                    // Update cart count (sum of all quantities)
+                    const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCount.textContent = totalItems;
                     
                     // Update cart items list
                     if (this.items.length === 0) {
@@ -1189,7 +1917,12 @@
                                 <div class="cart-item-details">
                                     <h4 class="cart-item-title">${item.title}</h4>
                                     <p class="cart-item-size">Size: ${item.size}</p>
-                                    <p class="cart-item-price">R${item.price.toFixed(2)}</p>
+                                    <div class="cart-item-quantity">
+                                        <button class="decrease-qty" data-item-id="${item.id}">-</button>
+                                        <input type="number" class="qty-input" value="${item.quantity}" min="1" max="10" data-item-id="${item.id}">
+                                        <button class="increase-qty" data-item-id="${item.id}">+</button>
+                                    </div>
+                                    <p class="cart-item-price">R${(item.price * item.quantity).toFixed(2)}</p>
                                     <button class="cart-item-remove" data-item-id="${item.id}">Remove</button>
                                 </div>
                             </div>
@@ -1201,10 +1934,10 @@
                 },
                 
                 generateWhatsAppMessage: function() {
-                    let message = "Hi SoleSA, I'd like to purchase these items:\n\n";
+                    let message = "Hi Wayne&co-SA, I'd like to purchase these items:\n\n";
                     
                     this.items.forEach((item, index) => {
-                        message += `${index + 1}. ${item.title} (Size: ${item.size}) - R${item.price.toFixed(2)}\n`;
+                        message += `${index + 1}. ${item.title} (Size: ${item.size}, Qty: ${item.quantity}) - R${(item.price * item.quantity).toFixed(2)}\n`;
                     });
                     
                     message += `\nTotal: R${this.getTotal().toFixed(2)}\n\n`;
@@ -1221,6 +1954,15 @@
             const cartButton = document.getElementById('cartButton');
             const cartClose = document.getElementById('cartClose');
             const checkoutBtn = document.getElementById('checkoutBtn');
+            const productModal = document.getElementById('productModal');
+            const modalClose = document.getElementById('modalClose');
+            const sizeGuideModal = document.getElementById('sizeGuideModal');
+            const sizeGuideClose = document.getElementById('sizeGuideClose');
+            const fitGuideBtn = document.getElementById('fitGuideBtn');
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            const quantityInput = document.getElementById('quantityInput');
+            const increaseQty = document.getElementById('increaseQty');
+            const decreaseQty = document.getElementById('decreaseQty');
             
             // Initialize wishlist buttons
             function initWishlist() {
@@ -1272,6 +2014,38 @@
                     }
                 });
                 
+                // Update quantity in cart
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('increase-qty')) {
+                        const itemId = parseInt(e.target.getAttribute('data-item-id'));
+                        const input = e.target.parentElement.querySelector('.qty-input');
+                        const newQuantity = parseInt(input.value) + 1;
+                        input.value = newQuantity;
+                        cart.updateItemQuantity(itemId, newQuantity);
+                    }
+                    
+                    if (e.target.classList.contains('decrease-qty')) {
+                        const itemId = parseInt(e.target.getAttribute('data-item-id'));
+                        const input = e.target.parentElement.querySelector('.qty-input');
+                        const newQuantity = parseInt(input.value) - 1;
+                        input.value = newQuantity;
+                        cart.updateItemQuantity(itemId, newQuantity);
+                    }
+                });
+                
+                // Handle direct input of quantity
+                document.addEventListener('change', function(e) {
+                    if (e.target.classList.contains('qty-input')) {
+                        const itemId = parseInt(e.target.getAttribute('data-item-id'));
+                        const newQuantity = parseInt(e.target.value);
+                        if (!isNaN(newQuantity) && newQuantity > 0) {
+                            cart.updateItemQuantity(itemId, newQuantity);
+                        } else {
+                            e.target.value = 1;
+                        }
+                    }
+                });
+                
                 // Checkout button
                 checkoutBtn.addEventListener('click', function() {
                     if (cart.items.length === 0) {
@@ -1285,55 +2059,188 @@
                 });
             }
             
-            // Initialize size selection in product modal
-            function initSizeSelection() {
-                document.querySelectorAll('.size-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
-                        this.classList.add('selected');
+            // Initialize product modal
+            function initProductModal() {
+                // Close modal
+                modalClose.addEventListener('click', function() {
+                    productModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+                
+                // Close when clicking outside
+                productModal.addEventListener('click', function(e) {
+                    if (e.target === productModal) {
+                        productModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+                
+                // Close with ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && productModal.style.display === 'block') {
+                        productModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+                
+                // Quantity controls in product modal
+                increaseQty.addEventListener('click', function() {
+                    const currentValue = parseInt(quantityInput.value);
+                    if (currentValue < 10) {
+                        quantityInput.value = currentValue + 1;
+                    }
+                });
+                
+                decreaseQty.addEventListener('click', function() {
+                    const currentValue = parseInt(quantityInput.value);
+                    if (currentValue > 1) {
+                        quantityInput.value = currentValue - 1;
+                    }
+                });
+                
+                // Open modal when product is clicked
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        // Don't open modal if clicking on wishlist button
+                        if (e.target.classList.contains('wishlist-btn')) {
+                            return;
+                        }
+
+                        const productId = this.getAttribute('data-product-id');
+                        const product = products[productId];
+                        
+                        if (product) {
+                            // Set product ID on modal for reference
+                            productModal.setAttribute('data-product-id', productId);
+                            
+                            // Set modal content
+                            document.getElementById('modalTitle').textContent = product.title;
+                            document.getElementById('modalProductTitle').textContent = product.title;
+                            document.getElementById('modalCategory').textContent = product.category;
+                            
+                            if (product.oldPrice) {
+                                document.getElementById('modalPrice').innerHTML = `R${product.price} <span>R${product.oldPrice}</span>`;
+                            } else {
+                                document.getElementById('modalPrice').innerHTML = `R${product.price}`;
+                            }
+                            
+                            // Set description
+                            document.getElementById('modalDescription').innerHTML = `
+                                <p>${product.description}</p>
+                            `;
+                            
+                            // Clear previous thumbnails
+                            const thumbnailContainer = document.getElementById('thumbnailContainer');
+                            thumbnailContainer.innerHTML = '';
+                            
+                            // Add images to modal
+                            product.images.forEach((img, index) => {
+                                const thumbnail = document.createElement('img');
+                                thumbnail.src = img;
+                                thumbnail.alt = `${product.title} view ${index + 1}`;
+                                thumbnail.className = 'thumbnail';
+                                if (index === 0) {
+                                    thumbnail.classList.add('active');
+                                    document.getElementById('modalMainImage').src = img;
+                                    document.getElementById('modalMainImage').alt = `${product.title} main view`;
+                                }
+                                
+                                thumbnail.addEventListener('click', function() {
+                                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                                    this.classList.add('active');
+                                    document.getElementById('modalMainImage').src = this.src;
+                                });
+                                
+                                thumbnailContainer.appendChild(thumbnail);
+                            });
+                            
+                            // Handle size selection
+                            const sizeOptions = document.getElementById('sizeOptions');
+                            sizeOptions.innerHTML = '';
+                            
+                            product.sizes.forEach(size => {
+                                const sizeBtn = document.createElement('button');
+                                sizeBtn.className = 'size-btn';
+                                sizeBtn.setAttribute('data-size', size);
+                                sizeBtn.textContent = size;
+                                
+                                sizeBtn.addEventListener('click', function() {
+                                    document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+                                    this.classList.add('selected');
+                                });
+                                
+                                sizeOptions.appendChild(sizeBtn);
+                            });
+                            
+                            // Reset quantity to 1
+                            quantityInput.value = 1;
+                            
+                            // Show fit guide for apparel
+                            const fitGuide = document.getElementById('fitGuide');
+                            if (product.type === 'apparel') {
+                                fitGuide.style.display = 'block';
+                            } else {
+                                fitGuide.style.display = 'none';
+                            }
+                            
+                            // Show modal
+                            productModal.style.display = 'block';
+                            document.body.style.overflow = 'hidden';
+                        }
                     });
                 });
-            }
-            
-            // Add to cart functionality in product modal
-            function initAddToCart() {
-                const addToCartBtn = document.createElement('button');
-                addToCartBtn.className = 'btn add-to-cart-btn';
-                addToCartBtn.textContent = 'Add to Cart';
-                addToCartBtn.style.marginTop = '10px';
                 
-                // Insert the button in modal actions
-                const modalActions = document.querySelector('.modal-actions');
-                if (modalActions) {
-                    modalActions.appendChild(addToCartBtn);
-                }
-                
+                // Add to cart functionality
                 addToCartBtn.addEventListener('click', function() {
                     const selectedSize = document.querySelector('.size-btn.selected');
                     if (!selectedSize) {
-                        alert('Please select a size');
+                        alert('Please select a size before adding to cart');
                         return;
                     }
                     
-                    const size = selectedSize.getAttribute('data-size');
-                    const productId = parseInt(document.querySelector('.product-modal').getAttribute('data-product-id'));
+                    const productId = productModal.getAttribute('data-product-id');
                     const product = products[productId];
+                    const quantity = parseInt(quantityInput.value);
                     
                     if (product) {
                         const added = cart.addItem(
                             productId,
-                            size,
+                            selectedSize.getAttribute('data-size'),
                             product.price,
                             product.title,
-                            product.images[0]
+                            product.images[0],
+                            quantity
                         );
                         
                         if (added) {
-                            alert(`${product.title} (Size: ${size}) added to cart`);
+                            alert(`${product.title} (Size: ${selectedSize.getAttribute('data-size')}, Qty: ${quantity}) added to cart`);
                             // Close the modal after adding to cart
-                            document.getElementById('productModal').style.display = 'none';
+                            productModal.style.display = 'none';
                             document.body.style.overflow = 'auto';
                         }
+                    }
+                });
+            }
+            
+            // Initialize size guide
+            function initSizeGuide() {
+                // Open size guide
+                fitGuideBtn.addEventListener('click', function() {
+                    sizeGuideModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                // Close size guide
+                sizeGuideClose.addEventListener('click', function() {
+                    sizeGuideModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+                
+                // Close when clicking outside
+                sizeGuideModal.addEventListener('click', function(e) {
+                    if (e.target === sizeGuideModal) {
+                        sizeGuideModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
                     }
                 });
             }
@@ -1432,269 +2339,19 @@
                 }
             }
 
-            // Product Detail Modal functionality
-            const productModal = document.getElementById('productModal');
-            const modalClose = document.getElementById('modalClose');
-            const modalMainImage = document.getElementById('modalMainImage');
-            const thumbnailContainer = document.getElementById('thumbnailContainer');
-            const modalProductTitle = document.getElementById('modalProductTitle');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalCategory = document.getElementById('modalCategory');
-            const modalPrice = document.getElementById('modalPrice');
-
-            // Product data with multiple images
-            const products = {
-                1: {
-                    id: 1,
-                    title: "Adidas Samba",
-                    category: "Sneakers",
-                    price: 999,
-                    oldPrice: 1950,
-                    description: "Premium leather sneakers with classic design. Perfect for both casual and sporty looks. Features a comfortable cushioned insole and durable rubber outsole.",
-                    images: [
-                        "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
-                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    ]
-                },
-                2: {
-                    id: 2,
-                    title: "Nike Nocta",
-                    category: "Sneakers",
-                    price: 1799,
-                    oldPrice: null,
-                    description: "Limited edition collaboration sneakers with premium materials and unique design elements. Features responsive cushioning and superior ankle support.",
-                    images: [
-                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
-                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                    ]
-                },
-                3: {
-                    id: 3,
-                    title: "Nike shox TL",
-                    category: "Sneakers",
-                    price: 3199,
-                    oldPrice: 3499,
-                    description: "Performance sneakers with innovative shox technology for superior cushioning and energy return. Ideal for athletes and casual wear alike.",
-                    images: [
-                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
-                    ]
-                },
-                4: {
-                    id: 4,
-                    title: "Nike Shox TL",
-                    category: "Running",
-                    price: 2299,
-                    oldPrice: null,
-                    description: "Running shoes designed for maximum comfort and support. Lightweight yet durable with breathable materials for long-distance performance.",
-                    images: [
-                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                    ]
-                },
-                5: {
-                    id: 5,
-                    title: "Nike Shox TL",
-                    category: "Running",
-                    price: 3499,
-                    oldPrice: 3799,
-                    description: "Premium running shoes with enhanced cushioning and stability features. Perfect for both training and competition.",
-                    images: [
-                        "https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
-                    ]
-                },
-                6: {
-                    id: 6,
-                    title: "Nike shox TL",
-                    category: "Running",
-                    price: 1899,
-                    oldPrice: null,
-                    description: "Lightweight running shoes with responsive cushioning. Designed for speed and comfort during your workouts.",
-                    images: [
-                        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-                        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                    ]
-                },
-                7: {
-                    id: 7,
-                    title: "Vans Old Skool",
-                    category: "Casual",
-                    price: 1099,
-                    oldPrice: null,
-                    description: "Classic skate shoes with iconic side stripe. Durable canvas upper and vulcanized rubber sole for board feel and flexibility.",
-                    images: [
-                        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80",
-                        "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
-                    ]
-                },
-                8: {
-                    id: 8,
-                    title: "Converse Chuck Taylor",
-                    category: "Casual",
-                    price: 999,
-                    oldPrice: null,
-                    description: "The original basketball shoe turned cultural icon. Canvas upper with rubber toe cap and All Star ankle patch for classic style.",
-                    images: [
-                        "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
-                    ]
-                },
-                9: {
-                    id: 9,
-                    title: "New Balance 574",
-                    category: "Casual",
-                    price: 1599,
-                    oldPrice: 1799,
-                    description: "Retro-inspired sneakers with ENCAP midsole technology for comfort and support. Suede and mesh upper for breathability and style.",
-                    images: [
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
-                        "https://images.unsplash.com/photo-1524532787116-e70228437bbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=643&q=80"
-                    ]
-                },
-                10: {
-                    id: 10,
-                    title: "Reebok Classic Leather",
-                    category: "Sneakers",
-                    price: 1499,
-                    oldPrice: null,
-                    description: "Timeless leather sneakers with soft cushioning and durable rubber outsole. Clean, minimalist design that pairs with everything.",
-                    images: [
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
-                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                    ]
-                },
-                11: {
-                    id: 11,
-                    title: "Nike Dunk Low",
-                    category: "Sneakers",
-                    price: 2799,
-                    oldPrice: null,
-                    description: "Basketball-inspired sneakers with heritage styling. Leather upper with padded collar for comfort and support.",
-                    images: [
-                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80",
-                        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                    ]
-                },
-                12: {
-                    id: 12,
-                    title: "Puma Suede Classic",
-                    category: "Sneakers",
-                    price: 1299,
-                    oldPrice: 1499,
-                    description: "Iconic suede sneakers with Formstrip branding. Soft padded collar and rubber outsole for all-day comfort.",
-                    images: [
-                        "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-                        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1025&q=80"
-                    ]
-                }
-            };
-
-            // Open modal when product is clicked
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    // Don't open modal if clicking on wishlist button
-                    if (e.target.classList.contains('wishlist-btn')) {
-                        return;
-                    }
-
-                    const productId = this.getAttribute('data-product-id');
-                    const product = products[productId];
-                    
-                    if (product) {
-                        // Set product ID on modal for reference
-                        productModal.setAttribute('data-product-id', productId);
-                        
-                        // Set modal content
-                        modalTitle.textContent = product.title;
-                        modalProductTitle.textContent = product.title;
-                        modalCategory.textContent = product.category;
-                        if (product.oldPrice) {
-                            modalPrice.innerHTML = `R${product.price} <span>R${product.oldPrice}</span>`;
-                        } else {
-                            modalPrice.innerHTML = `R${product.price}`;
-                        }
-                        
-                        // Set description
-                        document.querySelector('.modal-description').innerHTML = `
-                            <p>${product.description}</p>
-                        `;
-                        
-                        // Clear previous thumbnails
-                        thumbnailContainer.innerHTML = '';
-                        
-                        // Add images to modal
-                        product.images.forEach((img, index) => {
-                            const thumbnail = document.createElement('img');
-                            thumbnail.src = img;
-                            thumbnail.alt = `${product.title} view ${index + 1}`;
-                            thumbnail.className = 'thumbnail';
-                            if (index === 0) {
-                                thumbnail.classList.add('active');
-                                modalMainImage.src = img;
-                                modalMainImage.alt = `${product.title} main view`;
-                            }
-                            
-                            thumbnail.addEventListener('click', function() {
-                                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-                                this.classList.add('active');
-                                modalMainImage.src = this.src;
-                            });
-                            
-                            thumbnailContainer.appendChild(thumbnail);
-                        });
-                        
-                        // Reset size selection
-                        document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
-                        
-                        // Show modal
-                        productModal.style.display = 'block';
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
-            });
-
-            // Close modal
-            modalClose.addEventListener('click', function() {
-                productModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-
-            // Close when clicking outside modal content
-            productModal.addEventListener('click', function(e) {
-                if (e.target === productModal) {
-                    productModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Close with ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && productModal.style.display === 'block') {
-                    productModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
             // Initialize everything
             initWishlist();
             initCart();
-            initSizeSelection();
-            initAddToCart();
+            initProductModal();
+            initSizeGuide();
             updatePriceValue();
+            
+            // Add lazy loading to all images
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.loading) {
+                    img.loading = 'lazy';
+                }
+            });
         });
     </script>
 </body>
